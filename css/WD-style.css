@@ -1,0 +1,531 @@
+@media (min-width: 350px) {
+    /*---------------  HTML------------------------------------*/
+    .display-3{
+        font-size:300%;
+    }
+    .section-title{
+        font-size:150%;
+        text-align: center;
+    }
+    /*---------------HEADER------------------------------------*/
+    .logo-header{
+        width:10rem;
+    }
+    .navbar {
+        border-bottom: #7DC0FF 3px solid;
+        opacity:0.9;
+        margin-bottom: 0%;
+    } .navbar-nav li{
+        font-size:80%;
+    }
+    .dropdown-toggle::after{
+        display:none;
+    }
+    .nav-item a:hover{
+        color:#7DC0FF !important;
+    }
+    /*---------------SLIDESHOW---------------------------------*/
+    #showcase{
+        width:100%;
+        margin-bottom:8%;
+    }
+    .carousel-item{
+        height:150px;
+        margin-bottom:10%;
+    }
+    .carousel-image-1{
+        background-image: url("../img/slide1.jpg");
+        background-size:cover;
+    }
+    .carousel-image-2{
+        background-image: url("../img/slide2.jpg");
+        background-size:cover;
+    }
+    .carousel-image-3{
+        background-image: url("../img/slide3.jpg");
+        background-size:cover;
+    }
+    .carousel-caption{
+        margin-top:0%;
+    }
+    /*---------------ICONS-------------------------------------*/
+    .selling-point{
+        font-size:110%;
+        text-align: center;
+    }
+   
+    .selling-point-container{
+        margin-bottom:10%;
+    }
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:1000%;
+        margin-left:15%;
+        color:#7DC0FF;
+    }
+    .icons{
+        width:90%;
+    }
+    .icons-container, .get-an-estimate-container, .estimate-description, .estimate-form, .location-information, #map{
+        margin-bottom:15%;
+    }
+    .icon-title{
+        text-align: center;
+    }
+    ion-icon{
+        font-size:400%;
+    }
+    .icon-description, .location-description, .collision-estimate-description{
+        font-size:110%;
+        line-height:1.5;
+        text-align: center;
+    }
+   
+    /*---------------GET AN ESTIMATE---------------------------*/
+    .get-an-estimate{
+        width:90%;
+    }
+    .estimate-description{
+        font-size:110%;
+        line-height:1.5;
+        text-align:center;
+    }
+    .border-primary{
+        color:#7DC8FF;
+    }
+    .btn-primary:hover{
+        background-color:#7DC0FF;
+    }
+    ::placeholder{
+        color:white;
+        opacity: 1;
+    }
+   
+    .form-btn:hover{
+        background-color: #7DC0FF;
+    }
+    /*---------------LOCATION----------------------------------*/
+    .location{
+        width:90%;
+    }
+    .location-description{
+        width:19rem;
+        line-height:1.5;
+        font-size:110%;
+    }
+    #map{
+        width:20rem;
+        height:20rem;
+        margin-left:3%;
+    }
+    /*---------------FOOTER------------------------------------*/
+    .footer-list-1{
+        list-style: none;
+        width:10rem;
+    }
+    .footer-list-2{
+        list-style: none;
+        width:10rem;
+    }
+    .social-logo{
+        color:white;
+        font-size:200%;
+    }
+    .social-logo:hover{
+        color:#7DC0FF;
+    }
+    .footer-list-1 li{
+        font-size:0.75rem;
+    }
+    .footer-list-2 li{
+        font-size:0.75rem;
+    }
+    footer{
+        margin-top:10%;
+    }
+    .footer-container{
+        width:90%;
+    }
+    /*---------------SERVICES WEBPAGES-------------------------*/
+    .collision-img{
+        width:19rem;
+        margin-bottom:5%;
+    }
+}
+
+@media (min-width: 400px) {
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:1000%;
+        margin-left:20%;
+    }
+    .scrolling-image-title{
+        margin-top:5%;
+    }
+    .location-description{
+        width:21rem;
+    }      
+    .collision-img{
+        width:22rem;
+        margin-bottom:5%;
+    }
+}
+
+
+@media (min-width: 404px) {
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:1200%;
+        margin-left:15%;
+    }
+    .estimate-description{
+        width:23rem;
+    }
+    .location-description{
+        width:23rem;
+    }    
+}
+
+@media (min-width: 450px) {
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:1200%;
+        margin-left:20%;
+    }
+    .estimate-description{
+        margin-bottom:5%;
+    }
+    .collision-img{
+        width:25rem;
+        margin-bottom:5%;
+    }
+}
+
+
+@media (min-width: 475px) {
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:700%;
+        margin-left:18%;
+    }
+    .calandar-icon{
+        margin-left:35%
+    }
+    .location-description{
+        width:27rem;
+    }
+    .section-title{
+        font-size:180%;
+    }
+}
+
+
+@media (min-width: 500px) {
+      .collision-img{
+        width:28rem;
+        margin-left:2%;
+        margin-bottom:5%;
+    }
+}
+
+@media (min-width: 530px) {
+    .build-icon, .car-icon{
+        font-size:800%;
+        margin-left:14%;
+    }
+    .calandar-icon{
+        margin-left:37%
+    }
+    .scrolling-image-title{
+        margin-top:3%;
+    }
+    .estimate-description{
+        width:27rem;
+    }
+}
+
+@media (min-width: 549px) {
+    
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:850%;
+        margin-left:14%;
+    }
+    .calandar-icon{
+        margin-left:35%
+    }
+    .scrolling-image-title{
+        margin-top:3%;
+    }
+    .estimate-description{
+        width:27rem;
+    }
+    .location-description{
+        width:30rem;
+    }
+    .collision-img{
+        width:31rem;
+        margin-bottom:5%;
+    }
+}
+
+@media (min-width: 563px) {
+    
+    .build-icon, .car-icon{
+        font-size:900%;
+        margin-left:15%;
+    }
+    .calandar-icon{
+        margin-left:35%
+    }
+    .scrolling-image-title{
+        margin-top:3%;
+    }
+    .estimate-description{
+        width:28rem;
+    }
+}
+
+@media(min-width: 576px){
+    .carousel-caption{
+        margin-top:30rem;
+    }
+}
+@media (min-width: 583px) {
+    
+    .build-icon, .car-icon{
+        font-size:950%;
+        margin-left:15%;
+    }
+    .calandar-icon{
+        margin-left:35%
+    }
+    .scrolling-image-title{
+        margin-top:3%;
+    }
+    .estimate-description{
+        width:28rem;
+    }
+    
+}
+@media(min-width: 600px){
+    
+    .estimate-description{
+        width:30rem;
+    }    
+      .collision-img{
+        width:33rem;
+        margin-bottom:5%;
+    }
+
+}
+@media(min-width: 615px){
+
+    .location-title, .location-description{
+        text-align:left;
+    }
+    .location-description{
+        text-align:left;
+        width:15rem;
+        line-height:1.25rem;
+    }
+    .build-icon, .car-icon, .calandar-icon{
+        font-size:750%;
+        margin-left:5%;
+    }
+    .estimate-description{
+        width:32rem;
+    }
+
+}
+
+@media(min-width: 650px){
+    
+      .collision-img{
+        width:35rem;
+        margin-bottom:5%;
+    }
+
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 700px) {
+    
+    .build-icon, .car-icon, .calandar-icon{
+        margin-left:10%;
+    }
+    .estimate-description{
+        width:35rem;
+    }
+    .collision-img{
+        width:38rem;
+        margin-bottom:5%;
+    }
+
+}
+
+@media (min-width: 750px) {
+   
+    .estimate-description{
+        width:40rem;
+    }
+    .footer-list-1 li{
+        font-size:0.9rem;
+    }
+    .footer-list-2 li{
+        font-size:0.9rem;
+    }  
+    .collision-img{
+        width:42rem;
+        margin-bottom:5%;
+    }
+
+}
+
+/* Large devices (desktops) */
+@media (min-width: 800px) {
+
+    .logo-header{
+        width: 15rem;
+    }
+    .build-icon, .car-icon, .calandar-icon{
+        margin-left:18%;
+    }
+    .scrolling-image-title{
+        margin-top:0%;
+    }
+    .estimate-title{
+        text-align:left;
+    }
+    .estimate-description{
+        text-align:left;
+        width:15rem;
+        line-height:1.25rem;
+    }
+    .social-logo{
+        font-size:3.5rem;
+    }
+    .nav-link{
+        font-size:1.25rem;
+    }    
+    .collision-img{
+        width:46rem;
+        margin-bottom:5%;
+    }
+
+}
+
+@media (min-width: 830px){
+
+    .estimate-description, .location-description{
+        width:20rem;
+        line-height:1.5;
+    }
+
+}
+
+@media (min-width: 850px){
+    
+      .collision-img{
+        width:48rem;
+    }
+
+}
+
+@media (min-width:900px){
+    
+      .collision-img{
+        margin-left:5%;
+    }
+
+}
+
+@media (min-width:950px){
+    
+      .collision-img{
+        width:30rem;
+    }
+
+}
+
+@media (min-width: 1010px){
+    
+    /*---------------SCROLLING IMAGE-----------------------------*/
+    #scrolling-image {
+        position: relative;
+        min-height: 400px;
+        background-image: cover;
+        background: url('../img/challenger.jpg');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        text-align: center;
+        color: #fff;
+        margin-bottom:10%;
+        width:100%;
+        overflow: hidden;
+      }
+    .dark-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+      }
+      .scrolling-image-title{
+          font-size:150%;
+      }
+
+    /*---------------ICONS---------------------------------------*/
+    .build-icon, .car-icon, .calandar-icon{
+        color:white;
+        margin-left:5%;
+    }
+    .build-icon:hover, .car-icon:hover, .calandar-icon:hover{
+        color:#7DC0FF;
+        transition-duration: 1s;
+        font-size:9rem;
+    }
+
+}
+
+@media (min-width: 1100px){
+
+    .build-icon, .car-icon, .calandar-icon{
+        margin-left:5%;
+    }
+    .carousel-item{
+        height:15rem;
+        margin-bottom:0%;
+    }
+    .selling-point{
+        font-size:1.4rem;
+    }
+    .footer-list-1{
+        list-style: none;
+        width:15rem;
+    }
+    .footer-list-2{
+        list-style: none;
+        width:15rem;
+    }
+    .footer-list-1 li{
+        font-size:1.1rem;
+    }
+    .footer-list-2 li{
+        font-size:1.1rem;
+    } 
+
+}
+
+@media (min-width:1050px){
+    
+      .collision-img{
+        width:33rem;
+    }
+
+}
+
+@media (min-width: 1250px){
+
+    .estimate-description, .location-description{
+        width:35rem;
+        line-height:1.4;
+        font-size:1.4rem;
+    }
+
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--Mobile responsivness.-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Grid layout-->
+  <link rel="stylesheet" href="vendors/css/grid.css">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/WD-style.css">
+  <title>Mike's Auto Repair</title>
+  <link rel="icon" href="img/tab-logo.png">
+</head>
+
+<body>
+  <!-- Navbar with dropdown. -->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top mb-5">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" class="nav-text"><img class="logo-header" src="img/full-logo.svg"></a>
+
+
+      <!--Mobile friendly menu-->>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <div  class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link text-light" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#">Services</a>
+                  <div class="dropdown-menu">
+                    <a href="collision.html" class="dropdown-item nav-text"> - Collision Repair</a>
+                    <a href="refining.html" class="dropdown-item nav-text"> - Automotive Refining</a>
+                    <a href="mechanical.html" class="dropdown-item nav-text"> - Mechanical Services</a>
+                    <a href="#" class="dropdown-item nav-text"> - Towing</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-text text-light" href="#">Our Team</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-text text-light" href="#">Contact</a>
+              </li>
+          </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--Collision repair image and form-->
+<section class="collision-repair row m-auto" id="collision-repair-section">
+
+<div id="collision-repair-img-container" class="collision-repair-img-container col span-1-of-2">
+    <img src="img/refining.png" class="collision-img">
+</div>
+
+<div class="estimate-form col span-2-of-2" id="e-form">
+            <div class="card border-dark text-center card-form max-width:18rem">
+              <div class="card-body">
+                <h3 class="card-header text-secondary">Automotive Refining</h3>
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Your Name">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-md" placeholder="Email Adress">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Phone Number">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Vehicle, Year, Make and Model">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Description">
+                  </div>
+                  
+                  <button type="button" class="btn form-btn">GET AN ESTIMATE</button>
+                </form>
+              </div>
+            </div>
+          </div>
+</section>
+
+<!--In the footer put the Social Media Links, address and location.-->
+<footer class="bg-dark">
+  <div class="footer-container m-auto">
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="text-light footer-list-1">
+                      <li>Mike's Auto Body Repair</li>
+                      <li>Current Address</li>
+                      <li>City, State zip</li>
+                    </ul>
+                    <ul class="text-light footer-list-2">
+                      <li>Company Phone Number</li>
+                      <li>Mon-Fri 8:00AM - 6:00PM</li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2 mt-5">
+                    <ul class="nav navbar">
+                        <li><a href="#"><ion-icon name="logo-facebook" class="social-logo"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-twitter" class="social-logo"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-googleplus" class="social-logo"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram" class="social-logo"></ion-icon></a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+  </footer>
+
+<!--JQuery for bootstrap-->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+  crossorigin="anonymous"></script>
+
+  <!--In house js-->
+<script src="js/location.js"></script>
+<script src="js/query.js"></script>
+
+<!--Google Maps API-->
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB2DiUnd85XTqgQhIjXR_hf5nXrIeyFAA&callback=myMap"></script>
+
+<script>
+  // Get the current year for the copyright
+  $('#year').text(new Date().getFullYear());
+</script>
+<script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+</body>
+
+</html>
