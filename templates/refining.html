@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--Collision repair image and form-->
+<section class="collision-repair row m-auto" id="collision-repair-section">
+
+<div id="collision-repair-img-container" class="collision-repair-img-container col span-1-of-2">
+    <img src="{{ url_for('static', filename='img/refining.png')}}" class="collision-img">
+</div>
+
+<div class="estimate-form col span-2-of-2" id="e-form">
+            <div class="card border-dark text-center card-form max-width:18rem">
+              <div class="card-body">
+                <h3 class="card-header text-secondary">Automotive Refining</h3>
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Your Name">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-md" placeholder="Email Adress">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Phone Number">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Vehicle, Year, Make and Model">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Description">
+                  </div>
+                  
+                  <button type="button" class="btn form-btn">GET AN ESTIMATE</button>
+                </form>
+              </div>
+            </div>
+          </div>
+</section>
+
+{% endblock %}

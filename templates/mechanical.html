@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--Collision repair image and form-->
+<section class="collision-repair row m-auto"  id="collision-repair-section">
+
+<div id="collision-repair-img-container" class="collision-repair-img-container col span-1-of-2">
+    <img src="{{ url_for('static', filename='img/engine.png')}}" class="collision-img">
+</div>
+
+<div class="estimate-form col span-2-of-2" id="e-form">
+            <div class="card border-dark text-center card-form max-width:18rem">
+              <div class="card-body">
+                <h3 class="card-header text-secondary">Mechanical Services</h3>
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Your Name">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-md" placeholder="Email Adress">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Phone Number">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Vehicle, Year, Make and Model">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-md" placeholder="Description">
+                  </div>
+                  
+                  <button type="button" class="btn form-btn">GET AN ESTIMATE</button>
+                </form>
+              </div>
+            </div>
+          </div>
+</section>
+
+<!--In the footer put the Social Media Links, address and location.-->
+<footer class="bg-dark">
+  <div class="footer-container m-auto">
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="text-light footer-list-1">
+                      <li>Mike's Auto Body Repair</li>
+                      <li>Current Address</li>
+                      <li>City, State zip</li>
+                    </ul>
+                    <ul class="text-light footer-list-2">
+                      <li>Company Phone Number</li>
+                      <li>Mon-Fri 8:00AM - 6:00PM</li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2 mt-5">
+                    <ul class="nav navbar">
+                        <li><a href="#"><ion-icon name="logo-facebook" class="social-logo"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-twitter" class="social-logo"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-googleplus" class="social-logo"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram" class="social-logo"></ion-icon></a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
