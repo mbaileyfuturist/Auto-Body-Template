@@ -1,52 +1,36 @@
 import os
-from forms import EstimateForm
-from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
+from forms import EstimateForm
+from flask import Flask, render_template, request
+from flask_mail import Mail, Message
+from models import IndexTable, CollisionRepair, Mechanical, Refining, db
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mykey'
+
 app.config.update(
     DEBUG=True,
+    #EMAIL CONFIGURATION
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=465,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME='',
+    MAIL_PASSWORD=''
 )
+mail = Mail(app)
 
-#connect flask application to database.
+
+#Connect flask application to database.
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
+db.init_app(app)
 
-db = SQLAlchemy(app)
-
-#Modal setup: The modal name by default will have the same name as your classname.
-class CollisionRepairTable(db.Model):
-
-    #Create the columns.
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.Text)
-    email = db.Column(db.Text)
-    phoneNumber = db.Column(db.Text)
-    vehicleDetails = db.Column(db.Text)
-    vehicleDescription = db.Column(db.Text)
-
-
-    #id will be auto generated because its the primary key.
-    def __init__(self, name, email, phoneNumber, vehicleDetails, vehicleDescription):
-        self.name = name
-        self.email = email
-        self.phoneNumber = phoneNumber
-        self.vehicleDetails = vehicleDetails
-        self.vehicleDescription = vehicleDescription
-
-    #This method will give us a string repreentation of the columns
-    def __repr__(self):
-        return "Collision repair submission: Name: " + self.name + " Email: " + self.email + " Phone Number: " + self.phoneNumber + "Vehicle Details: " + self.vehicleDetails + "Vehicle Description: " + self.vehicleDescription
-#################################################################################
-
-#Route Setup.
+#ROUTE SETUP.
 @app.route('/', methods=['GET', 'POST'])
 def root():
     form =  EstimateForm()
-
     if form.validate_on_submit():
         name = form.nameForm.data
         email = form.emailForm.data
@@ -54,43 +38,164 @@ def root():
         vehicleDetails = form.vehicleDetailsForm.data
         vehicleDescription = form.vehicleDescriptionForm.data
 
-        new_submission = CollisionRepairTable(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+        #Store data from form into SQLite database.
+        new_submission = IndexTable(name, email, phoneNumber, vehicleDetails, vehicleDescription)
         db.session.add(new_submission)
         db.session.commit()
 
-        return render_template('index.html', form=form)
+        #Send details of form submission via email.
+        try:
+            msg = Message('New Estimate Submission')
+            sender = ''
+            recipients = ['']
+
+            msg.body= 'A new estimate form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
+
+            mail.send(msg)
+            return render_template('index.html', form=form)
+
+        except Exception as e:
+            return str(e)
     
     return render_template('index.html', form=form)
+
+
 
 @app.route('/index.html', methods=['GET', 'POST'])
 def index():
     form =  EstimateForm()
     
     if form.validate_on_submit():
-        db.create_all()
         name = form.nameForm.data
         email = form.emailForm.data
         phoneNumber = form.numberForm.data
         vehicleDetails = form.vehicleDetailsForm.data
         vehicleDescription = form.vehicleDescriptionForm.data
 
-        new_submission = CollisionRepairTable(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+        #Store data from form into SQLite database.
+        new_submission = IndexTable(name, email, phoneNumber, vehicleDetails, vehicleDescription)
         db.session.add(new_submission)
         db.session.commit()
-        return render_template('index', form=form)
+
+         #Send details of form submission via email.
+        try:
+            msg = Message('New Estimate Submission')
+            sender = ''
+            recipients = ['']
+
+            msg.body= 'A new estimate form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
+
+            mail.send(msg)
+            return render_template('index', form=form)
+        
+        except Exception as e:
+            return str(e)
 
     return render_template('index.html', form=form)
 
-@app.route('/collision.html')
+
+
+@app.route('/collision.html', methods=['GET', 'POST'])
 def collision():
+
+    form =  EstimateForm()
+    
+    if form.validate_on_submit():
+        name = form.nameForm.data
+        email = form.emailForm.data
+        phoneNumber = form.numberForm.data
+        vehicleDetails = form.vehicleDetailsForm.data
+        vehicleDescription = form.vehicleDescriptionForm.data
+
+        #Store data from form into SQLite database.
+        new_submission = CollisionRepair(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+        db.session.add(new_submission)
+        db.session.commit()
+
+         #Send details of form submission via email.
+        try:
+            msg = Message('New Collision Submission')
+            sender = ''
+            recipients = ['']
+
+            msg.body= 'A new collision form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
+
+            mail.send(msg)
+            return render_template('index', form=form)
+
+        except Exception as e:
+            return str(e)
+
     return render_template('collision.html')
 
-@app.route('/mechanical.html')
+
+
+@app.route('/mechanical.html', methods=['GET', 'POST'])
 def mechanical():
+
+    form =  EstimateForm()
+    
+    if form.validate_on_submit():
+        name = form.nameForm.data
+        email = form.emailForm.data
+        phoneNumber = form.numberForm.data
+        vehicleDetails = form.vehicleDetailsForm.data
+        vehicleDescription = form.vehicleDescriptionForm.data
+
+        #Store data from form into SQLite database.
+        new_submission = Mechanical(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+        db.session.add(new_submission)
+        db.session.commit()
+
+         #Send details of form submission via email.
+        try:
+            msg = Message('New mechanical Submission')
+            sender = ''
+            recipients = ['']
+
+            msg.body= 'A new mechanical form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
+
+            mail.send(msg)
+            return render_template('index', form=form)
+
+        except Exception as e:
+            return str(e)
+    
     return render_template('mechanical.html')
 
-@app.route('/refining.html')
+
+
+@app.route('/refining.html', methods=['GET', 'POST'])
 def refining():
+
+    form =  EstimateForm()
+    
+    if form.validate_on_submit():
+        name = form.nameForm.data
+        email = form.emailForm.data
+        phoneNumber = form.numberForm.data
+        vehicleDetails = form.vehicleDetailsForm.data
+        vehicleDescription = form.vehicleDescriptionForm.data
+
+        #Store data from form into SQLite database.
+        new_submission = Refining(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+        db.session.add(new_submission)
+        db.session.commit()
+
+         #Send details of form submission via email.
+        try:
+            msg = Message('New Refining Submission')
+            sender = ''
+            recipients = ['']
+
+            msg.body= 'A new refining form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
+
+            mail.send(msg)
+            return render_template('index', form=form)
+
+        except Exception as e:
+            return str(e)
+    
     return render_template('refining.html')
 
 if __name__ == '__main__':

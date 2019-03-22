@@ -118,6 +118,7 @@
               <div class="card-body">
                 <h3 class="card-header text-dark">Collision Repair</h3>
                 <form method="POST">
+                    {{ form.csrf_token }}
                   <div class="form-group">
                     {{form.nameForm()}}
                   </div>

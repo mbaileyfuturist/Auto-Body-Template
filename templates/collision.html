@@ -13,28 +13,29 @@
             <div  id="e-card" class="card border-dark text-center card-form max-width:18rem">
               <div class="card-body">
                 <h3 class="card-header text-secondary">Collision Repair</h3>
-                <form>
+                <form method="POST">
+                  {{ form.csrf_token }}
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-md" placeholder="Your Name">
+                  {{form.nameForm()}}
                   </div>
 
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-md" placeholder="Email Adress">
+                      {{form.emailForm()}}
                   </div>
 
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-md" placeholder="Phone Number">
+                      {{form.numberForm()}}
                   </div>
 
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-md" placeholder="Vehicle, Year, Make and Model">
+                      {{form.vehicleDetailsForm()}}
                   </div>
 
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-md" placeholder="Description">
+                      {{form.vehicleDescriptionForm()}}
                   </div>
                   
-                  <button type="button" class="btn form-btn">GET AN ESTIMATE</button>
+                  {{form.submit()}}
                 </form>
               </div>
             </div>
