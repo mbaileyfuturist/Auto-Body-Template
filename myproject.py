@@ -20,6 +20,13 @@ app.config.update(
 )
 mail = Mail(app)
 
+def send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription):
+    msg = Message('New Estimate Submission')
+    sender = ''
+    recipients = ['']
+    msg.body= 'A new estimate form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
+    mail.send(msg)
+
 
 #Connect flask application to database.
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -45,13 +52,7 @@ def root():
 
         #Send details of form submission via email.
         try:
-            msg = Message('New Estimate Submission')
-            sender = ''
-            recipients = ['']
-
-            msg.body= 'A new estimate form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
-
-            mail.send(msg)
+            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index.html', form=form)
 
         except Exception as e:
@@ -79,13 +80,7 @@ def index():
 
          #Send details of form submission via email.
         try:
-            msg = Message('New Estimate Submission')
-            sender = ''
-            recipients = ['']
-
-            msg.body= 'A new estimate form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
-
-            mail.send(msg)
+            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
         
         except Exception as e:
@@ -97,7 +92,6 @@ def index():
 
 @app.route('/collision.html', methods=['GET', 'POST'])
 def collision():
-
     form =  EstimateForm()
     
     if form.validate_on_submit():
@@ -114,19 +108,13 @@ def collision():
 
          #Send details of form submission via email.
         try:
-            msg = Message('New Collision Submission')
-            sender = ''
-            recipients = ['']
-
-            msg.body= 'A new collision form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
-
-            mail.send(msg)
+            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
 
         except Exception as e:
             return str(e)
 
-    return render_template('collision.html')
+    return render_template('collision.html', form=form)
 
 
 
@@ -149,19 +137,13 @@ def mechanical():
 
          #Send details of form submission via email.
         try:
-            msg = Message('New mechanical Submission')
-            sender = ''
-            recipients = ['']
-
-            msg.body= 'A new mechanical form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
-
-            mail.send(msg)
+            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
 
         except Exception as e:
             return str(e)
     
-    return render_template('mechanical.html')
+    return render_template('mechanical.html', form=form)
 
 
 
@@ -184,21 +166,13 @@ def refining():
 
          #Send details of form submission via email.
         try:
-            msg = Message('New Refining Submission')
-            sender = ''
-            recipients = ['']
-
-            msg.body= 'A new refining form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
-
-            mail.send(msg)
+            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
 
         except Exception as e:
             return str(e)
     
-    return render_template('refining.html')
+    return render_template('refining.html', form=form)
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0')
-
- 
