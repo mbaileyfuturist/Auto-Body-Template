@@ -20,6 +20,13 @@ app.config.update(
 )
 mail = Mail(app)
 
+#Connect flask application to database.
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
+db.init_app(app)
+
+#Take info from form, format it into a message and send to an email.
 def send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription):
     msg = Message('New Estimate Submission')
     sender = ''
@@ -27,17 +34,19 @@ def send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription):
     msg.body= 'A new estimate form has been submitted: \n\n Name: ' + name + '\n\n Email: ' + email + '\n\n Phone Number: ' + phoneNumber + '\n\n Vehicle Details: ' + vehicleDetails + '\n\n Vehicle Description: ' + vehicleDescription
     mail.send(msg)
 
-
-#Connect flask application to database.
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
-db.init_app(app)
+#Initialize database and create all tables.
+def initdb():
+    db.create_all()
 
 #ROUTE SETUP.
 @app.route('/', methods=['GET', 'POST'])
 def root():
+    
+    #Create all tables.
+    initdb()
+
     form =  EstimateForm()
+
     if form.validate_on_submit():
         name = form.nameForm.data
         email = form.emailForm.data
@@ -52,7 +61,7 @@ def root():
 
         #Send details of form submission via email.
         try:
-            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+            #send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index.html', form=form)
 
         except Exception as e:
@@ -61,9 +70,9 @@ def root():
     return render_template('index.html', form=form)
 
 
-
 @app.route('/index.html', methods=['GET', 'POST'])
 def index():
+
     form =  EstimateForm()
     
     if form.validate_on_submit():
@@ -80,7 +89,7 @@ def index():
 
          #Send details of form submission via email.
         try:
-            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+            #send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
         
         except Exception as e:
@@ -89,9 +98,9 @@ def index():
     return render_template('index.html', form=form)
 
 
-
 @app.route('/collision.html', methods=['GET', 'POST'])
 def collision():
+
     form =  EstimateForm()
     
     if form.validate_on_submit():
@@ -108,14 +117,13 @@ def collision():
 
          #Send details of form submission via email.
         try:
-            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+            #send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
 
         except Exception as e:
             return str(e)
 
     return render_template('collision.html', form=form)
-
 
 
 @app.route('/mechanical.html', methods=['GET', 'POST'])
@@ -137,14 +145,13 @@ def mechanical():
 
          #Send details of form submission via email.
         try:
-            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+            #send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
 
         except Exception as e:
             return str(e)
     
     return render_template('mechanical.html', form=form)
-
 
 
 @app.route('/refining.html', methods=['GET', 'POST'])
@@ -166,7 +173,7 @@ def refining():
 
          #Send details of form submission via email.
         try:
-            send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
+            #send_email(name, email, phoneNumber, vehicleDetails, vehicleDescription)
             return render_template('index', form=form)
 
         except Exception as e:
