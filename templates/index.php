@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+<?php include 'header.php'; ?>
 
 <!--Slide show that shows an images for collision repairs, mechanical services, and automotive refinishing.-->
 <section id="showcase">
@@ -118,27 +116,26 @@
               <div class="card-body">
                 <h3 class="card-header text-dark">Collision Repair</h3>
                 <form method="POST">
-                    {{ form.csrf_token }}
                   <div class="form-group">
-                    {{form.nameForm()}}
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="full name">
                   </div>
 
                   <div class="form-group">
-                    {{form.emailForm()}}
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@email.com">
                   </div>
 
                   <div class="form-group">
-                    {{form.numberForm()}}
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="phone number">
                   </div>
 
                   <div class="form-group">
-                      {{form.vehicleDetailsForm()}}
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="vehicle details">
                   </div>
 
                   <div class="form-group">
-                      {{form.vehicleDescriptionForm()}}
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="problem description">
                   </div>
-                  {{form.submit()}}
+                  <button type="button" class="btn btn-outline-primary">Submit</button>
                 </form>
               </div>
             </div>
@@ -159,9 +156,11 @@
          voluptatem quod at sed fugit inventore. Inventore quis expedita rerum.</p>
     </div>
     
-    <div id="map" class="col span-1-of-2 mr-3"></div>
+    <div class="col span-1-of-2 mr-3">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49549.683914086505!2d-77.18125395091283!3d39.086994858622376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b62a2cfee39115%3A0xeca5be10d9c9df24!2sRockville%2C%20MD!5e0!3m2!1sen!2sus!4v1597278042671!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
   </div>
 
 </section>
 
-{% endblock %}
+<?php include 'footer.php'; ?>
