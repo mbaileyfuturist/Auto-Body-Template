@@ -22,7 +22,7 @@
   <!-- Navbar with dropdown. -->
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="index.php" class="nav-text"><img class="logo-header" src="../static/img/full-logo.svg"/></a>
+        <a class="navbar-brand" href="index.php" class="nav-text"><img class="logo-header" src="static/img/full-logo.svg"/></a>
 
       <!--Mobile friendly menu-->>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">

@@ -33,8 +33,8 @@
     crossorigin="anonymous"></script>
   
   <!--In house js-->
-  <script src=".. /static/js/location.js"></script>
-  <script src="../static/js/query.js"></script>
+  <script src="static/js/location.js"></script>
+  <script src="static/js/query.js"></script>
   
   <!--Google Maps API-->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCoazRglB335DBlaXsA9zvOBbzprEdkes&callback=initMap"

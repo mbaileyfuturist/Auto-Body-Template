@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row" style="margin-top:15%;">
     <div class="col-sm">
-        <img src="../static/img/engine.png" class="collision-img">
+        <img src="static/img/engine.png" class="collision-img">
     </div>
 
     <div class="col-sm">

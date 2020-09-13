@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row" style="margin-top:15%;">
     <div class="col-sm">
-    <img src="../static/img/refining.png" class="collision-img">
+    <img src="static/img/refining.png" class="collision-img">
     </div>
     <div class="col-sm">
     <div class="card border-dark text-center card-form max-width:18rem">
